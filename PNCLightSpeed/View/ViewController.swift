@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: BaseViewController {
     
     var isInitialLoad: Bool = true
     
@@ -28,6 +28,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        self.addSlideMenuButton()
         setupTableViewUI()
         downloadData()
         isInitialLoad = false
