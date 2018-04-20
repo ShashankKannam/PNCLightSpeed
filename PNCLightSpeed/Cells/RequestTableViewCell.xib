@@ -51,6 +51,13 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo-ServiceNow.png" translatesAutoresizingMaskIntoConstraints="NO" id="fNT-vN-q88">
+                        <rect key="frame" x="339" y="0.0" width="120" height="60"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="60" id="RQi-Zx-2aG"/>
+                            <constraint firstAttribute="width" constant="120" id="t3H-pu-V4g"/>
+                        </constraints>
+                    </imageView>
                 </subviews>
                 <constraints>
                     <constraint firstItem="qG5-nd-e0c" firstAttribute="top" secondItem="uww-Ic-lek" secondAttribute="bottom" constant="5" id="6IM-Bl-ssf"/>
@@ -64,6 +71,8 @@
                     <constraint firstItem="odM-DA-HMC" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="5" id="Sbb-ER-oik"/>
                     <constraint firstItem="uww-Ic-lek" firstAttribute="top" secondItem="uan-fp-N1K" secondAttribute="bottom" constant="5" id="cGj-M0-lbn"/>
                     <constraint firstItem="uan-fp-N1K" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="10" id="dmg-xV-QPd"/>
+                    <constraint firstAttribute="trailing" secondItem="fNT-vN-q88" secondAttribute="trailing" id="iBK-5d-ooE"/>
+                    <constraint firstItem="fNT-vN-q88" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="iOr-jZ-388"/>
                     <constraint firstAttribute="trailingMargin" secondItem="CmV-yL-buO" secondAttribute="trailing" constant="3" id="jsX-pQ-7Qe"/>
                     <constraint firstItem="uan-fp-N1K" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="5" id="stJ-U4-Bml"/>
                     <constraint firstAttribute="bottomMargin" secondItem="odM-DA-HMC" secondAttribute="bottom" constant="5" id="tnK-LJ-shh"/>
@@ -75,10 +84,14 @@
             <connections>
                 <outlet property="approvalForLabel" destination="uww-Ic-lek" id="A3e-RF-Cpn"/>
                 <outlet property="dateCreatedLabel" destination="odM-DA-HMC" id="taq-oC-Tjn"/>
+                <outlet property="imageview" destination="fNT-vN-q88" id="8Jy-uI-fAI"/>
                 <outlet property="serviceTypeLabel" destination="uan-fp-N1K" id="GJp-PY-RWf"/>
                 <outlet property="statusLabel" destination="qG5-nd-e0c" id="hFN-yd-ld9"/>
             </connections>
             <point key="canvasLocation" x="19.5" y="-111.5"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="Logo-ServiceNow.png" width="1200" height="630"/>
+    </resources>
 </document>

@@ -12,6 +12,8 @@ class ViewController: UIViewController {
     
     var isInitialLoad: Bool = true
     
+    var archiveIndex = 0
+    
     @IBAction func refresh(_ sender: Any) {
         
         listTableview.isHidden = false
@@ -43,6 +45,8 @@ class ViewController: UIViewController {
     
     fileprivate func downloadData() {
         
+        self.serviceNowRequests.removeAll()
+        
         listTableview.isHidden = true
         ActivitySpinner.show("Loading", disableUI: true)
         BaseService.sharedInstance.getRequestsList(completion: { (requests, error)  in
@@ -60,6 +64,12 @@ class ViewController: UIViewController {
             //            }
             
             self.serviceNowRequests = requests ?? []
+            
+            // Archive
+            let archive = ServiceNowRequest()
+            self.serviceNowRequests.append(archive)
+            self.archiveIndex = self.serviceNowRequests.indices.last ?? 0
+            
             ActivitySpinner.hide()
             self.listTableview.isHidden = false
             self.listTableview.reloadData()
@@ -88,6 +98,11 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: RequestTableViewCell.reuseID, for: indexPath) as? RequestTableViewCell else { return UITableViewCell() }
+        
+        //if indexPath.row == archiveIndex {
+            cell.isArchive = indexPath.row == archiveIndex
+        //}
+        
         cell.updatedata(request: serviceNowRequests[indexPath.row])
         cell.backgroundColor = .white
         return cell
@@ -95,6 +110,18 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let selectedRequest = serviceNowRequests[indexPath.row]
+        
+        if indexPath.row == archiveIndex {
+            var request = selectedRequest
+            request.changeNumber = "IRR - 012165"
+            request.requestedPersonName = "Paul Smith"
+            request.createdDate = "2018-12-13"
+            request.description = "Secondary Impact certification instance. To be resolved by Clarity Project PRJ31405"
+            SelectedRequestCache.shared.setRequest(request: request)
+            self.performSegue(withIdentifier: "detail", sender: request)
+            return
+        }
+        
         listTableview.isHidden = true
         ActivitySpinner.show("Loading", disableUI: true)
         BaseService.sharedInstance.getChangeRequest(request: selectedRequest) { (request, error) in
@@ -107,14 +134,5 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
         }
     }
     
-    //    func prepareForSegue(segue: UIStoryboardSegue!, sender: AnyObject!) {
-    //        if segue.identifier == "detail" {
-    //            if let request = sender as? ServiceNowRequest {
-    //                if let vc = segue.destination as? DetailViewController {
-    //                    vc.request = request
-    //                }
-    //            }
-    //        }
-    //    }
 }
 

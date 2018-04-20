@@ -16,7 +16,7 @@ class BaseService {
     let user = "bb8"
     let password = "ilovelamp"
     
-    let listEndpoint = "https://pncmelliniumfalcon.service-now.com/api/now/table/sysapproval_approver?sysparm_query=approver%3Djavascript%3AgetMyApprovals()&sysparm_limit=4"
+    let listEndpoint = "https://pncmelliniumfalcon.service-now.com/api/now/table/sysapproval_approver?sysparm_query=approver%3Djavascript%3AgetMyApprovals()&sysparm_limit=40"
     //"https://pncmelliniumfalcon.service-now.com/api/now/table/sysapproval_approver?sysparm_query=approver%3Djavascript%3AgetMyApprovals()&sysparm_limit=4"
     //"https://pncmelliniumfalcon.service-now.com/api/now/table/sysapproval_approver?sysparm_limit=4&Approver=Bb8"
     //
@@ -36,7 +36,7 @@ class BaseService {
         return headers
     }
     
-    class func  getMockData() -> [ServiceNowRequest] {
+    class func  getMockDataForArchive() -> [ServiceNowRequest] {
         //        let mock1 = ServiceNowRequest(requestedPersonName: "A", id: "1234", status: .pending, createdDate: "10/12/18", description: "qwertqwertyu")
         //        let mock2 = ServiceNowRequest(requestedPersonName: "B", id: "12345", status: .pending, createdDate: "10/13/18", description: "qwertqwertyu 1")
         return []
@@ -152,12 +152,12 @@ class BaseService {
                         }
                     }
                     
-                   // if requestdata.status == .pending {
+                    if requestdata.status == .pending {
                         requests.append(requestdata)
-                    //}
+                    }
+                    
                 }
             }
-            
         }
         return requests
     }

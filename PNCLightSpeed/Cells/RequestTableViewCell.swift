@@ -20,11 +20,14 @@ class CustomUIButton: UIButton {
 
 class RequestTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var imageview: UIImageView!
     @IBOutlet weak var approvalForLabel: UILabel!
     @IBOutlet weak var statusLabel: UILabel!
     
     @IBOutlet weak var serviceTypeLabel: UILabel!
     @IBOutlet weak var dateCreatedLabel: UILabel!
+    
+    var isArchive: Bool = false
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -45,14 +48,23 @@ class RequestTableViewCell: UITableViewCell {
 //                     NSAttributedStringKey.font: UIFont.systemFont(ofSize: 15)
 //        ]
         
-        approvalForLabel.text = "Requestor: \(request.requestedPersonName?.capitalized ?? "")"
-        dateCreatedLabel.text = "Created on: \(request.createdDate ?? "")"
-        serviceTypeLabel.text = request.sourceTable == "change_request" ? "ServiceNow CR" : "ServiceNow REQ"
+        if isArchive {
+            approvalForLabel.text = "Requestor: Paul Smith"
+            dateCreatedLabel.text = "Created on: 2018-09-19 18:46:02"
+            serviceTypeLabel.text = "Archer IRR"
+            statusLabel.text = "Under Review"
+            imageview.image = #imageLiteral(resourceName: "Ar.png")
+        } else {
+            approvalForLabel.text = "Requestor: \(request.requestedPersonName?.capitalized ?? "")"
+            dateCreatedLabel.text = "Created on: \(request.createdDate ?? "")"
+            serviceTypeLabel.text = request.sourceTable == "change_request" ? "ServiceNow CR" : "ServiceNow REQ"
+            statusLabel.text = "Status: \(request.status.description)"
+            imageview.image = #imageLiteral(resourceName: "Logo-ServiceNow.png")
+        }
         
 //        let attrDesc1 = NSMutableAttributedString(string: "Status: ", attributes: attr2)
 //        let attrDesc2 = NSMutableAttributedString(string: request.status.description, attributes: attr1)
 //        attrDesc1.append(attrDesc2)
-        statusLabel.text = "Status: \(request.status.description)"
         //statusLabel.attributedText = attrDesc1
     }
     

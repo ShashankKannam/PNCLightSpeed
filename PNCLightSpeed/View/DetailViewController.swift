@@ -39,6 +39,11 @@ class DetailViewController: UIViewController {
         super.viewDidLoad()
         self.navigationItem.title = "Request Details"
         request = SelectedRequestCache.shared.getRequest()
+        
+        if request?.changeNumber == "IRR - 012165" {
+            self.navigationItem.title = "Details"
+            
+        }
     }
     
     @IBAction func approveAction(_ sender: Any) {
@@ -50,6 +55,10 @@ class DetailViewController: UIViewController {
     }
     
     func changeStatus(status: SNStatusType) {
+        
+        if request?.changeNumber == "IRR - 012165" {
+            return
+        }
         
         //1. Create the alert controller.
         let alert = UIAlertController(title: "Submit", message: "Are you sure you want to modify the request", preferredStyle: .alert)

@@ -11,7 +11,7 @@ import UIKit
 public struct ActivitySpinner {
     
     public struct Settings {
-        public static var BackgroundColor = UIColor.black.withAlphaComponent(0.5)//UIColor(red: 227/255, green: 232/255, blue: 235/255, alpha: 1.0)
+        public static var BackgroundColor = UIColor.black.withAlphaComponent(0.8)//UIColor(red: 227/255, green: 232/255, blue: 235/255, alpha: 1.0)
         public static var ActivityColor = UIColor.white//UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 1.0)
         public static var TextColor = UIColor.white//UIColor(red: 80/255, green: 80/255, blue: 80/255, alpha: 1.0)
         public static var FontName = "HelveticaNeue-Light"
