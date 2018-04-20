@@ -12,6 +12,7 @@
 		0608D3FA2088D9CC007BDCCE /* RequestTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0608D3F82088D9CC007BDCCE /* RequestTableViewCell.xib */; };
 		0608D3FD2088E086007BDCCE /* BaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0608D3FC2088E086007BDCCE /* BaseService.swift */; };
 		06487EE120890EA9009BE5EE /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06487EDF20890EA9009BE5EE /* DetailViewController.swift */; };
+		066337472089822D00488880 /* pnclogo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 066337462089822D00488880 /* pnclogo.jpg */; };
 		06E6602A2088CEB10086C362 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06E660292088CEB10086C362 /* AppDelegate.swift */; };
 		06E6602C2088CEB10086C362 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06E6602B2088CEB10086C362 /* ViewController.swift */; };
 		06E6602F2088CEB10086C362 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 06E6602D2088CEB10086C362 /* Main.storyboard */; };
@@ -27,6 +28,7 @@
 		0608D3F82088D9CC007BDCCE /* RequestTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RequestTableViewCell.xib; sourceTree = "<group>"; };
 		0608D3FC2088E086007BDCCE /* BaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseService.swift; sourceTree = "<group>"; };
 		06487EDF20890EA9009BE5EE /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		066337462089822D00488880 /* pnclogo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = pnclogo.jpg; sourceTree = "<group>"; };
 		06E660262088CEB10086C362 /* PNCLightSpeed.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PNCLightSpeed.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		06E660292088CEB10086C362 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		06E6602B2088CEB10086C362 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -115,6 +117,7 @@
 				06E660292088CEB10086C362 /* AppDelegate.swift */,
 				06E6602D2088CEB10086C362 /* Main.storyboard */,
 				06E660302088CEB30086C362 /* Assets.xcassets */,
+				066337462089822D00488880 /* pnclogo.jpg */,
 				06E660322088CEB30086C362 /* LaunchScreen.storyboard */,
 				06E660352088CEB30086C362 /* Info.plist */,
 			);
@@ -199,6 +202,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				06E660342088CEB30086C362 /* LaunchScreen.storyboard in Resources */,
+				066337472089822D00488880 /* pnclogo.jpg in Resources */,
 				0608D3FA2088D9CC007BDCCE /* RequestTableViewCell.xib in Resources */,
 				06E660312088CEB30086C362 /* Assets.xcassets in Resources */,
 				06E6602F2088CEB10086C362 /* Main.storyboard in Resources */,

@@ -37,6 +37,7 @@ class DetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationItem.title = "Request Details"
         request = SelectedRequestCache.shared.getRequest()
     }
     
@@ -49,9 +50,40 @@ class DetailViewController: UIViewController {
     }
     
     func changeStatus(status: SNStatusType) {
+        
+        //1. Create the alert controller.
+        let alert = UIAlertController(title: "Submit", message: "Are you sure you want to modify the request", preferredStyle: .alert)
+        
+        //2. Add the text field. You can configure it however you need.
+        alert.addTextField { (textField) in
+            //
+            textField.placeholder = "Please Enter comments, if any"
+        }
+        
+        // 3. Grab the value from the text field, and print it when the user clicks OK.
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak alert] (_) in
+            let textField = alert?.textFields![0] // Force unwrapping because we know it exists.
+            //alert?.dismiss(animated: true, completion: {
+                self.makeService(status: status, comments: textField?.text ?? "")
+            //})
+        }))
+        
+        alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: { (action) in
+            alert.dismiss(animated: true, completion: {
+                //self.makeService(status: status)
+            })
+        }))
+        
+        // 4. Present the alert.
+        self.present(alert, animated: true, completion: nil)
+        
+       
+    }
+    
+    func makeService(status: SNStatusType, comments: String) {
         guard let request = request else { return }
         ActivitySpinner.show("Loading", disableUI: true)
-        BaseService.sharedInstance.changeStatus(request: request, status: status) { (response, error) in
+        BaseService.sharedInstance.changeStatus(request: request, status: status, comments: comments) { (response, error) in
             ActivitySpinner.hide()
             if response != nil {
                 let controller = UIAlertController(title: "Successfully Updated", message: "\(request.changeNumber ?? "Request") is successfully \(status.description) ", preferredStyle: .alert)

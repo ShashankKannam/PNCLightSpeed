@@ -42,8 +42,8 @@ class BaseService {
         return []
     }
     
-    func changeStatus(request: ServiceNowRequest, status: SNStatusType, completion: @escaping (ServiceNowRequest?, Error?) -> ()) {
-        let parameters: [String: String] = ["state":"\(status.description)"]
+    func changeStatus(request: ServiceNowRequest, status: SNStatusType, comments: String, completion: @escaping (ServiceNowRequest?, Error?) -> ()) {
+        let parameters: [String: String] = ["state":"\(status.description)", "comments":"\(comments)"]
         let endpoint = "https://pncmelliniumfalcon.service-now.com/api/now/table/sysapproval_approver/\(request.id ?? "")"
         
         Alamofire.request(endpoint,

@@ -23,6 +23,7 @@ class RequestTableViewCell: UITableViewCell {
     @IBOutlet weak var approvalForLabel: UILabel!
     @IBOutlet weak var statusLabel: UILabel!
     
+    @IBOutlet weak var serviceTypeLabel: UILabel!
     @IBOutlet weak var dateCreatedLabel: UILabel!
     
     override func awakeFromNib() {
@@ -37,9 +38,22 @@ class RequestTableViewCell: UITableViewCell {
     }
     
     func updatedata(request: ServiceNowRequest) {
-        approvalForLabel.text = "Approval For: \(request.requestedPersonName?.capitalized ?? "")"
-        statusLabel.text = "Status: \(request.status.description)"
+//        let attr1 = [NSAttributedStringKey.foregroundColor: UIColor.green,
+//                     NSAttributedStringKey.font: UIFont.systemFont(ofSize: 13)
+//                     ]
+//        let attr2 = [NSAttributedStringKey.foregroundColor: UIColor.black,
+//                     NSAttributedStringKey.font: UIFont.systemFont(ofSize: 15)
+//        ]
+        
+        approvalForLabel.text = "Requestor: \(request.requestedPersonName?.capitalized ?? "")"
         dateCreatedLabel.text = "Created on: \(request.createdDate ?? "")"
+        serviceTypeLabel.text = request.sourceTable == "change_request" ? "ServiceNow CR" : "ServiceNow REQ"
+        
+//        let attrDesc1 = NSMutableAttributedString(string: "Status: ", attributes: attr2)
+//        let attrDesc2 = NSMutableAttributedString(string: request.status.description, attributes: attr1)
+//        attrDesc1.append(attrDesc2)
+        statusLabel.text = "Status: \(request.status.description)"
+        //statusLabel.attributedText = attrDesc1
     }
     
     class var reuseID: String {
