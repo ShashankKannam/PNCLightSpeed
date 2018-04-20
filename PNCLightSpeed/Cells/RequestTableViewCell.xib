@@ -26,9 +26,9 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Approval For: 122345" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uww-Ic-lek">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Approval For: 122345" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uww-Ic-lek">
                         <rect key="frame" x="25" y="16" width="419" height="42"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -38,21 +38,36 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CmV-yL-buO">
+                        <rect key="frame" x="30" y="107" width="406" height="1"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="nQD-bI-Tkr"/>
+                        </constraints>
+                    </view>
                 </subviews>
                 <constraints>
                     <constraint firstItem="qG5-nd-e0c" firstAttribute="top" secondItem="uww-Ic-lek" secondAttribute="bottom" constant="5" id="6IM-Bl-ssf"/>
                     <constraint firstItem="uww-Ic-lek" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="5" id="7Dm-DU-BHv"/>
                     <constraint firstItem="qG5-nd-e0c" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="5" id="7up-M0-VzH"/>
                     <constraint firstItem="odM-DA-HMC" firstAttribute="top" secondItem="qG5-nd-e0c" secondAttribute="bottom" constant="5" id="80W-0G-NqY"/>
+                    <constraint firstItem="CmV-yL-buO" firstAttribute="bottom" secondItem="H2p-sc-9uM" secondAttribute="bottomMargin" id="DSt-6Y-zbC"/>
+                    <constraint firstItem="CmV-yL-buO" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="10" id="G8c-9J-XEY"/>
                     <constraint firstItem="odM-DA-HMC" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" constant="5" id="GdX-n3-dQd"/>
                     <constraint firstItem="qG5-nd-e0c" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" constant="5" id="MUX-cf-kTZ"/>
                     <constraint firstItem="uww-Ic-lek" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="5" id="Q7E-SR-8kR"/>
                     <constraint firstItem="odM-DA-HMC" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="5" id="Sbb-ER-oik"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="CmV-yL-buO" secondAttribute="trailing" constant="3" id="jsX-pQ-7Qe"/>
                     <constraint firstAttribute="bottomMargin" secondItem="odM-DA-HMC" secondAttribute="bottom" constant="5" id="tnK-LJ-shh"/>
                     <constraint firstItem="uww-Ic-lek" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" constant="5" id="yhi-Yu-BTT"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="approvalForLabel" destination="uww-Ic-lek" id="A3e-RF-Cpn"/>
+                <outlet property="dateCreatedLabel" destination="odM-DA-HMC" id="taq-oC-Tjn"/>
+                <outlet property="statusLabel" destination="qG5-nd-e0c" id="hFN-yd-ld9"/>
+            </connections>
             <point key="canvasLocation" x="17.5" y="-54.5"/>
         </tableViewCell>
     </objects>
